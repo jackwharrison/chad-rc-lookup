@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: chad-rc-lookup
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    region: frankfurt
+    plan: free
+    envVars:
+      - key: KOBO_TOKEN
+        sync: false
+      - key: ASSET_ID
+        sync: false
