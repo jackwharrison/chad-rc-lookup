@@ -2,6 +2,7 @@
 <html lang="{{ lang }}" {% if lang == 'ar' %}dir="rtl"{% endif %}>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ t.title }}</title>
     <style>
         body {
@@ -9,9 +10,11 @@
             background: #f8f9fa;
             padding: 20px;
             position: relative;
+            margin: 0;
         }
         .container {
             max-width: 760px;
+            width: 100%;
             margin: auto;
             background: white;
             padding: 30px;
@@ -23,7 +26,7 @@
             margin: 20px 0;
         }
         .photo img {
-            max-width: 300px;
+            max-width: 100%;
             height: auto;
             border: 1px solid #ddd;
             border-radius: 4px;
@@ -44,6 +47,7 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
+            box-sizing: border-box;
         }
         .hidden {
             display: none;
@@ -60,7 +64,6 @@
             background-color: #cccccc;
             cursor: not-allowed;
         }
-        /* Dropdown color styles */
         select option[value="approved"] {
             background-color: #d4edda;
         }
@@ -70,6 +73,24 @@
         #confirm-person-label {
             text-align: center;
             font-weight: bold;
+        }
+
+        /* 📱 Mobile-specific tweaks */
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .submit-btn {
+                font-size: 14px;
+            }
+            .lang-selector {
+                position: static;
+                text-align: right;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
